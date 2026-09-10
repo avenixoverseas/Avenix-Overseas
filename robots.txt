@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Admin area should not be indexed.
+Disallow: /admin.html
