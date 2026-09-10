@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#0B1426"/>
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<title>Admin | Avenix Overseas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Allura&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+  body[data-page="admin"]{background:#0B1426;min-height:100vh;color:#E2E8F0;}
+  .admin-shell{max-width:1100px;margin:0 auto;padding:28px 20px 60px;}
+  .admin-card{
+    background:rgba(255,255,255,0.045);
+    border:1px solid rgba(255,255,255,0.10);
+    border-radius:24px;
+    padding:28px;
+    backdrop-filter:blur(18px);
+    box-shadow:0 24px 70px rgba(0,0,0,0.28);
+  }
+  .login-shell{max-width:620px;margin:7vh auto 0;display:block;}
+  .login-form-panel{display:flex;align-items:center;}
+  .login-form-panel .admin-card{width:100%;background:rgba(255,255,255,.06);}
+  .login-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px;}
+  .security-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(74,222,128,.2);background:rgba(74,222,128,.08);color:#86EFAC;padding:6px 9px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
+  .password-wrap{position:relative;}
+  .password-wrap input{padding-right:48px;}
+  .password-toggle{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:38px;height:38px;border:0;background:transparent;color:#94A3B8;cursor:pointer;border-radius:10px;}
+  .password-toggle:hover{background:rgba(255,255,255,.06);color:#fff;}
+  .login-help{font-size:11px;color:#64748B;line-height:1.5;margin-top:12px;}
+  .login-help strong{color:#94A3B8;}
+  #loginBox{max-width:none;margin:0;}
+  @media(max-width:850px){.login-shell{max-width:620px;margin-top:4vh;}}
+  .admin-card h1,.admin-card h2{font-family:Manrope,sans-serif;color:#fff;margin-bottom:8px;}
+  .admin-card h1{font-size:1.6rem;}
+  .admin-card h2{font-size:1.2rem;margin-top:8px;}
+  .admin-muted{color:#94A3B8;font-size:14px;margin-bottom:22px;}
+  .admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:800px){.admin-grid{grid-template-columns:1fr;}}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#94A3B8;margin-bottom:6px;}
+  .field input,.field select,.field textarea{
+    width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.12);
+    background:rgba(0,0,0,0.25);color:#fff;font:inherit;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:rgba(201,162,39,0.6);box-shadow:0 0 0 3px rgba(201,162,39,0.15);
+  }
+  .field textarea{min-height:100px;resize:vertical;}
+  .btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+  .btn.small{padding:8px 14px;font-size:12px;}
+  .btn.line{background:transparent;border:1px solid rgba(255,255,255,0.25);color:#fff;border-radius:999px;cursor:pointer;}
+  .btn.line:hover{border-color:#C9A227;color:#C9A227;}
+  .form-status{margin-top:12px;font-size:13px;}
+  .form-status.error{color:#F87171;}
+  .form-status.success{color:#4ADE80;}
+  .admin-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap;}
+  .admin-brand{display:flex;align-items:center;gap:12px;}
+  .admin-brand img{height:48px;width:auto;background:transparent;}
+  .admin-brand span{font-family:Manrope;font-weight:800;color:#fff;letter-spacing:.06em;font-size:13px;}
+  .admin-item{
+    background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;padding:16px 18px;margin-bottom:12px;
+  }
+  .admin-item.admin-hidden{opacity:0.55;}
+  .admin-item-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .job-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
+  .pill{display:inline-block;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;
+    background:rgba(201,162,39,0.15);color:#E8C547;}
+  .empty{padding:24px;text-align:center;color:#64748B;}
+  .admin-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+  .admin-tabs button{
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+    color:#CBD5E1;padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:600;font-size:13px;
+  }
+  .admin-tabs button.active{background:linear-gradient(135deg,#C9A227,#E8C547);color:#0B1426;border-color:transparent;}
+  .panel-section{display:none;}
+  .panel-section.active{display:block;}
+  body.admin-session-active .admin-lock-note{display:block;}
+  .admin-lock-note{display:none;font-size:12px;color:#FBBF24;margin-top:8px;}
+
+  .preview-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
+  .img-preview{position:relative;width:88px;height:88px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.15);}
+  .img-preview img{width:100%;height:100%;object-fit:cover;}
+  .trash-btn{position:absolute;top:4px;right:4px;width:28px;height:28px;border:0;border-radius:8px;background:rgba(220,38,38,.9);color:#fff;cursor:pointer;display:grid;place-items:center;font-size:12px;}
+  .admin-full-img{width:100%;max-height:220px;object-fit:cover;border-radius:12px;margin:10px 0;}
+  .admin-thumb{width:56px;height:56px;object-fit:cover;border-radius:8px;margin-right:6px;}
+  .thumb-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
+  .stars-line{color:#E8C547;letter-spacing:2px;font-size:14px;margin:4px 0 8px;}
+</style>
+</head>
+<body data-page="admin">
+<div class="admin-shell">
+  <div class="admin-top">
+    <div class="admin-brand">
+      <img src="assets/images/logo-transparent.png" alt="Avenix"/>
+      <span>ADMIN PANEL</span>
+    </div>
+    <div>
+      <button type="button" class="btn line small" id="refreshBtn" hidden>Refresh</button>
+      <button type="button" class="btn btn-gold small" id="logoutBtn" hidden>Log out</button>
+    </div>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="login-shell">
+    <div class="login-form-panel">
+      <div id="loginBox" class="admin-card">
+        <div class="login-title-row">
+          <div><h1>Admin login</h1><p class="admin-muted" style="margin-bottom:0;">Sign in with your Avenix staff account.</p></div>
+          <span class="security-badge"><i class="fa-solid fa-lock"></i> Secure</span>
+        </div>
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="adminEmail">Email</label>
+            <input type="email" id="adminEmail" name="email" required placeholder="you@avenixoverseas.com" autocomplete="username" autocapitalize="none" spellcheck="false"/>
+          </div>
+          <div class="field">
+            <label for="adminPassword">Password</label>
+            <div class="password-wrap">
+              <input type="password" id="adminPassword" name="password" required placeholder="Enter your password" autocomplete="current-password"/>
+              <button type="button" class="password-toggle" id="toggleAdminPassword" aria-label="Show password" title="Show password"><i class="fa-solid fa-eye"></i></button>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%;"><i class="fa-solid fa-right-to-bracket"></i> Sign in</button>
+          <div id="loginStatus" class="form-status" role="status" aria-live="polite"></div>
+          <p class="login-help"><strong>Login Issue?</strong> Contact admin</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" hidden>
+    <p class="admin-lock-note"><i class="fa-solid fa-lock"></i> Session active — use Log out to exit. Site navigation is locked.</p>
+    <div class="admin-tabs">
+      <button type="button" class="active" data-tab="reviews">Reviews</button>
+      <button type="button" data-tab="jobs">Hiring / Work posts</button>
+      <button type="button" data-tab="password" id="passwordTabBtn" hidden>Password</button>
+    </div>
+
+    <!-- Reviews panel -->
+    <div class="panel-section active" id="panel-reviews">
+      <div class="admin-card" style="margin-bottom:20px;">
+        <h2>Add / edit review</h2>
+        <p class="admin-muted">Post a review as admin, or manage client reviews below.</p>
+        <form id="adminReviewForm">
+          <input type="hidden" id="adminReviewId"/>
+          <div class="admin-grid">
+            <div class="field"><label>Client name</label><input id="adminReviewName" required/></div>
+            <div class="field"><label>Service</label>
+              <select id="adminReviewService" required>
+                <option>Study Visa</option><option>Work Opportunity</option><option>Overseas Careers</option>
+                <option>Business Visa</option><option>Tourist Visa</option><option>Consultation</option>
+                <option>Document Verification</option><option>Other</option>
+              </select>
+            </div>
+            <div class="field"><label>Rating (1–10)</label>
+              <select id="adminReviewRating">
+                <option value="1">1 — Disappointing</option>
+                <option value="2">2 — Below Expectations</option>
+                <option value="3">3 — Needs Improvement</option>
+                <option value="4">4 — Fair Experience</option>
+                <option value="5">5 — Satisfactory</option>
+                <option value="6">6 — Good Experience</option>
+                <option value="7">7 — Very Good</option>
+                <option value="8">8 — Excellent Experience</option>
+                <option value="9">9 — Exceptional</option>
+                <option value="10" selected>10 — Outstanding</option>
+              </select>
+            </div>
+            <div class="field"><label>Image</label><input id="adminReviewImage" type="file" accept="image/*"/>
+              <div id="reviewImagePreview" class="preview-row"></div>
+            </div>
+          </div>
+          <div class="field"><label>Review text</label><textarea id="adminReviewText" required></textarea></div>
+          <div class="btn-row">
+            <button type="submit" class="btn btn-gold">Save review</button>
+            <button type="reset" class="btn line">Clear</button>
+          </div>
+          <div id="adminReviewStatus" class="form-status"></div>
+        </form>
+      </div>
+      <div class="admin-card">
+        <h2>All reviews</h2>
+        <div id="reviewAdmin"><div class="empty">Loading…</div></div>
+      </div>
+    </div>
+
+    <!-- Jobs panel -->
+    <div class="panel-section" id="panel-jobs">
+      <div class="admin-card" style="margin-bottom:20px;">
+        <h2>Post hiring / work opportunity</h2>
+        <p class="admin-muted">These appear on the Work Opportunity page when active.</p>
+        <form id="jobForm">
+          <input type="hidden" id="jobId"/>
+          <div class="admin-grid">
+            <div class="field"><label>Job Title *</label><input id="jobTitle" required placeholder="e.g. Warehouse Associate"/></div>
+            <div class="field"><label>Country *</label><input id="jobCountry" required placeholder="e.g. Poland"/></div>
+            <div class="field"><label>City *</label><input id="jobCity" required placeholder="e.g. Warsaw"/></div>
+            <div class="field"><label>Position *</label><input id="jobPosition" required placeholder="e.g. Full-time / Skilled"/></div>
+            <div class="field"><label>Salary *</label><input id="jobSalary" required placeholder="e.g. €1500–1800 / month"/></div>
+            <div class="field" style="display:flex;align-items:center;gap:10px;padding-top:22px;">
+              <input type="checkbox" id="jobInterview" style="width:18px;height:18px;"/>
+              <label for="jobInterview" style="margin:0;text-transform:none;letter-spacing:0;font-size:14px;color:#E2E8F0;">Interview required (Yes if checked)</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Add images *</label>
+            <input id="jobImages" type="file" accept="image/*" multiple/>
+            <div id="jobImagePreviews" class="preview-row"></div>
+            <p style="font-size:12px;color:#94A3B8;margin-top:6px;">Upload one or more images. Use trash to remove before saving.</p>
+          </div>
+          <div class="field"><label>Requirements *</label><textarea id="jobRequirements" required placeholder="Skills, documents, language…"></textarea></div>
+          <div class="field"><label>Description *</label><textarea id="jobDescription" required placeholder="Full role description…"></textarea></div>
+          <div class="btn-row">
+            <button type="submit" class="btn btn-gold">Save hiring post</button>
+            <button type="reset" class="btn line" id="jobClear">Clear</button>
+          </div>
+          <div id="jobStatus" class="form-status"></div>
+        </form>
+      </div>
+      <div class="admin-card">
+        <h2>Published opportunities</h2>
+        <div id="jobAdmin"><div class="empty">Loading…</div></div>
+      </div>
+    </div>
+
+    <!-- Password (owner only) -->
+    <div class="panel-section" id="panel-password">
+      <div class="admin-card" id="passwordPanel" hidden>
+        <h2>Change password</h2>
+        <p class="admin-muted">Only the primary Admin account can use this control.</p>
+        <form id="passwordForm">
+          <div class="field">
+            <label>Account</label>
+            <select id="passwordTarget">
+              <option value="affysiddiqui98@gmail.com">affysiddiqui98@gmail.com (Admin)</option>
+              <option value="avenixoverseas@gmail.com">avenixoverseas@gmail.com</option>
+              <option value="avenixoverseas1@gmail.com">avenixoverseas1@gmail.com</option>
+              <option value="contact@avenixoverseas.com">contact@avenixoverseas.com</option>
+            </select>
+          </div>
+          <div class="field" id="currentPasswordField">
+            <label>Current Admin password</label>
+            <input type="password" id="currentPassword"/>
+          </div>
+          <div class="field"><label>New password</label><input type="password" id="newPassword" required minlength="8"/></div>
+          <div class="field"><label>Confirm new password</label><input type="password" id="confirmPassword" required minlength="8"/></div>
+          <button type="submit" class="btn btn-gold">Update password</button>
+          <div id="passwordStatus" class="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="js/supabase-config.js"></script>
+<script defer src="js/admin.js"></script>
+
+</body>
+</html>

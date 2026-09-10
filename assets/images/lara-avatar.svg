@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+<defs>
+ <radialGradient id="bg" cx="35%" cy="25%"><stop stop-color="#f7d77d"/><stop offset=".42" stop-color="#d9a928"/><stop offset="1" stop-color="#8a6716"/></radialGradient>
+ <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#162f4a"/><stop offset="1" stop-color="#04131f"/></linearGradient>
+ <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffe0c0"/><stop offset="1" stop-color="#d9986f"/></linearGradient>
+ <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-opacity=".28"/></filter>
+</defs>
+<circle cx="80" cy="80" r="76" fill="#071c2c" stroke="#f2c75c" stroke-width="3"/>
+<circle cx="80" cy="80" r="63" fill="url(#bg)" opacity=".18"/>
+<path d="M39 144c5-31 22-46 41-46s36 15 41 46" fill="#0b2638"/>
+<path d="M45 77c-4-30 12-54 36-57 28-4 48 16 43 50-2 13-8 25-18 33H56c-6-8-10-16-11-26z" fill="url(#hair)" filter="url(#shadow)"/>
+<ellipse cx="80" cy="78" rx="34" ry="40" fill="url(#skin)"/>
+<path d="M49 69c1-26 14-43 34-46 21-2 37 10 40 29-15-6-30-12-48-9-9 2-17 10-26 26z" fill="url(#hair)"/>
+<path d="M66 78q6-5 12 0M83 78q6-5 12 0" fill="none" stroke="#10202f" stroke-width="3" stroke-linecap="round"/>
+<circle cx="72" cy="79" r="2.2" fill="#10202f"/><circle cx="89" cy="79" r="2.2" fill="#10202f"/>
+<path d="M75 94q5 4 10 0" fill="none" stroke="#9d554e" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M45 78q-2 26 14 38M115 78q2 26-14 38" fill="none" stroke="#f2c75c" stroke-width="2" opacity=".8"/>
+<circle cx="80" cy="25" r="6" fill="#1f6feb" stroke="#fff" stroke-width="2"/>
+<path d="M80 13v-5M68 17l-4-4M92 17l4-4" stroke="#f2c75c" stroke-width="2" stroke-linecap="round"/>
+</svg>

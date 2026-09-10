@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Client reviews — Avenix Overseas"/>
+<meta name="theme-color" content="#0B1426"/>
+<title>Reviews | Avenix Overseas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Allura&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body data-page="reviews">
+<a class="admin-header-link" href="admin.html">Admin</a>
+<header class="header">
+<div class="wrap nav">
+<a class="brand" href="index.html" aria-label="Avenix Overseas home">
+<img src="assets/images/logo-light.png" alt="Avenix Overseas" width="180" height="64"/>
+<span class="brand-name"><b>Avenix</b> <em>Overseas</em></span>
+</a>
+<nav class="navlinks" id="nav" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="work-opportunity.html">Work Opportunity</a>
+<a href="about.html">About Us</a>
+<a href="services.html">Services</a>
+<a href="countries.html">Countries</a>
+<a class="active" href="reviews.html">Reviews</a>
+<a href="contact.html">Contact</a>
+</nav>
+<div class="nav-cta"><a class="btn btn-gold" href="contact.html#consultation">Free Consultation</a></div>
+<button class="menu" id="menu" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+</div>
+</header>
+
+<section class="page-hero" aria-label="Page hero">
+<div class="hero-slides" aria-hidden="true">
+<div class="hero-slide active" style="background-image:url('assets/images/reviews.jpg')"></div>
+<div class="hero-slide" style="background-image:url('assets/images/client-support.jpg')"></div>
+<div class="hero-slide" style="background-image:url('assets/images/consultation.jpg')"></div>
+</div>
+<div class="hero-overlay"></div>
+<div class="wrap hero-content">
+<div class="eyebrow">Avenix Overseas</div>
+<h1><span class="script-accent">Real voices.</span> Real journeys.</h1>
+<p class="hero-lead">Client reviews and experiences shared with Avenix Overseas.</p>
+</div>
+<div class="hero-dots" role="tablist" aria-label="Hero slides"></div>
+</section>
+
+<section class="section reviews-section">
+<div class="wrap">
+<div class="section-head"><div class="kicker">Reviews</div><h2>What clients share</h2><p>Read real experiences and share your own journey with Avenix Overseas.</p></div>
+
+<div class="review-form-card" id="share-experience">
+<h2>Share Your Experience</h2>
+<p class="form-intro">Your review and optional image are saved directly to Avenix Overseas through our secure Supabase database.</p>
+<form id="publicReviewForm" enctype="multipart/form-data" novalidate>
+<div class="review-form-grid">
+<div class="review-field"><label for="revName">Name *</label><input id="revName" type="text" maxlength="120" autocomplete="name" required placeholder="Your full name"></div>
+<div class="review-field"><label for="revPlace">Place <span>(optional)</span></label><input id="revPlace" type="text" maxlength="120" autocomplete="address-level2" placeholder="City / Country"></div>
+<div class="review-field"><label for="revService">Service used *</label><select id="revService" required><option value="">Select a service</option><option>Study Visa</option><option>Work Opportunity</option><option>Overseas Careers</option><option>Business Visa</option><option>Tourist Visa</option><option>Free International Resume</option><option>Document Verification</option><option>Offer Letter Check</option><option>Agency / Employer Check</option><option>Consultation</option><option>Other</option></select></div>
+<div class="review-field"><label for="revRating">Rating *</label><select id="revRating" required><option value="10" selected>10 ★ — Outstanding</option><option value="9">9 ★ — Exceptional</option><option value="8">8 ★ — Excellent Experience</option><option value="7">7 ★ — Very Good</option><option value="6">6 ★ — Good Experience</option><option value="5">5 ★ — Satisfactory</option><option value="4">4 ★ — Fair Experience</option><option value="3">3 ★ — Needs Improvement</option><option value="2">2 ★ — Below Expectations</option><option value="1">1 ★ — Disappointing</option></select></div>
+<div class="review-field full"><label for="revText">Your review *</label><textarea id="revText" rows="5" maxlength="2500" required placeholder="Tell us about your experience in at least 10 words…"></textarea><div id="wordCount" class="field-help">0 words</div></div>
+<div class="review-field full"><label for="revImage">Image <span>(optional)</span></label><input id="revImage" type="file" accept="image/png,image/jpeg,image/webp,image/gif"><div class="field-help">PNG, JPEG, WebP or GIF, up to 5 MB.</div></div>
+</div>
+<button type="submit" class="btn btn-gold review-submit-btn">Publish Review</button>
+<div id="revStatus" class="form-status" role="status" aria-live="polite"></div>
+</form>
+</div>
+
+<div class="section-head review-list-heading"><div class="kicker">Client voices</div><h2>Reviews from our clients</h2></div>
+<div id="reviews-list" class="cards review-cards"><div class="review-empty">Loading reviews…</div></div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="wrap">
+<div class="footer-grid">
+<div class="footer-brand">
+<img src="assets/images/logo-light.png" alt="Avenix Overseas" height="80"/>
+<p>Beyond Borders, We Build Pathways to Your Better Future.</p>
+<p style="margin-top:12px;"><a href="mailto:contact@avenixoverseas.com">contact@avenixoverseas.com</a></p>
+<p style="margin-top:6px;"><a href="tel:+917451944446">+91 74519 44446</a></p>
+<p style="margin-top:6px;"><a href="https://wa.me/77064067865" target="_blank" rel="noopener">WhatsApp +7 706 406 7865</a></p>
+</div>
+<div><h4>Explore</h4><ul>
+<li><a href="services.html">Services</a></li>
+<li><a href="countries.html">Countries</a></li>
+<li><a href="work-opportunity.html">Work Opportunity</a></li>
+<li><a href="reviews.html">Reviews</a></li>
+</ul></div>
+<div><h4>Company</h4><ul>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul></div>
+<div><h4>Legal</h4><ul>
+<li><a href="privacy-policy.html">Privacy Policy</a></li>
+<li><a href="terms.html">Terms</a></li>
+<li><a href="disclaimer.html">Disclaimer</a></li>
+</ul></div>
+</div>
+<div class="footer-bottom"><span>© 2026 Avenix Overseas. All rights reserved.</span></div>
+</div>
+</footer>
+
+<a class="ao-lara-float" href="#ask-lara" data-lara-open title="Ask Lara">
+<img src="assets/images/lara-robot.svg" alt="Lara"/>
+<div><strong>Ask Lara</strong><small>Your AI assistant</small></div>
+</a>
+<a class="ao-whatsapp-float" href="https://wa.me/77064067865" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<img src="assets/images/whatsapp.svg" alt="WhatsApp"/>
+</a>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="js/supabase-config.js"></script>
+<script defer src="js/main.js"></script>
+<script defer src="js/reviews.js"></script>
+</body>
+</html>
