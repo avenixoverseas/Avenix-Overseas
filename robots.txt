@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Admin area should not be indexed.
+Disallow: /admin.html
+
+Sitemap: https://avenixoverseas.com/sitemap.xml

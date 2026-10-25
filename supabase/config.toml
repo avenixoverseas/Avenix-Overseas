@@ -1,0 +1,9 @@
+# Avenix Overseas Supabase Edge Function configuration
+[functions.lara-chat]
+verify_jwt = false
+
+[functions.submit-review]
+verify_jwt = false
+
+[functions.admin-change-password]
+verify_jwt = true
